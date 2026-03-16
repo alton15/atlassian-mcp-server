@@ -6,6 +6,30 @@
 
 MCP (Model Context Protocol) server that provides Jira and Confluence tools for Claude Desktop and Claude Code. Connect your Atlassian workspace directly to Claude for searching issues, reading pages, and more.
 
+## Architecture
+
+```mermaid
+graph LR
+    subgraph "Claude Client"
+        CD[Claude Desktop]
+        CC[Claude Code]
+    end
+
+    subgraph "MCP Server"
+        MCP[Atlassian MCP Server<br/>stdio transport]
+    end
+
+    subgraph "Atlassian Cloud"
+        JIRA[Jira REST API]
+        CONF[Confluence REST API]
+    end
+
+    CD <-->|MCP Protocol| MCP
+    CC <-->|MCP Protocol| MCP
+    MCP -->|"jira_search_issues<br/>jira_get_issue<br/>jira_get_my_issues"| JIRA
+    MCP -->|"confluence_search_pages<br/>confluence_get_page<br/>confluence_get_page_images<br/>confluence_get_recent_updates"| CONF
+```
+
 ## Features
 
 This server exposes 7 tools across two Atlassian products:
