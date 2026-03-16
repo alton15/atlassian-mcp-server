@@ -1,5 +1,7 @@
 # Atlassian MCP Server
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 [Korean / 한국어](README.ko.md)
 
 MCP (Model Context Protocol) server that provides Jira and Confluence tools for Claude Desktop and Claude Code. Connect your Atlassian workspace directly to Claude for searching issues, reading pages, and more.
